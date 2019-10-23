@@ -1,6 +1,7 @@
-myApp.controller('CommentsCtrl', ['$scope', 'PostFactory', '$routeParams', function ($scope, PostFactory, $routeParams) {
+myApp.controller('CommentsCtrl', ['$scope', 'PostFactory', '$routeParams', '$filter', function ($scope, PostFactory, $routeParams, $filter) {
         $scope.loading = true;
         $scope.newComment = {};
+        $scope.today = new Date();
         
 
     PostFactory.getPost($routeParams.id).then(function (post) {

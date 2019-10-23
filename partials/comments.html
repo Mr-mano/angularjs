@@ -4,15 +4,16 @@
 
 
     <h1>{{title}}</h1>
-    <div ng-repeat="comment in comments | filter:{content: query} | orderBy: order">
+    <div ng-repeat="comment in comments | filter:{content: query} | orderBy: order ">
         <p>
-            <strong>{{comment.username}}</strong><br>
+            <strong>{{comment.username | uppercase}}</strong><br>
+            <span>{{ today | date : " d'.'MM'.'y" }}</span><br>
             <strong>{{comment.city}}</strong><br>
             <strong>{{comment.email}}</strong><br>
             {{comment.content}}
         </p>
     </div>
-   
+
     <form ng-submit="addComment(data)">
         <input type="text" placeholder="username" ng-model="newComment.username"/><br>
         <input type="text" placeholder="city" ng-model="newComment.city"/><br>
